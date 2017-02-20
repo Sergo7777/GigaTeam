@@ -1,0 +1,13 @@
+li a{
+	color:green;
+}
+body {
+	background-color: #F7F2E7;
+}
+#user-toolbar{
+	text-align: right;
+	margin-top: 30px;
+}
+h1 {
+	text-align: center;
+}

@@ -1,0 +1,27 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+<!-- link Bootstrap 3-->
+	<link rel="stylesheet" 
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<div>
+	<div class="col-xs-6">
+		<h1> Голосование на разные темы </h1>
+	{% if user.is_authenticated %}
+	  <p>Добро пожаловать, {{ user.username }}. Спасибо, что не забываете нас.</p>
+	  <div class="col-xs-12">
+		<div class="polls">
+			{% if latest_question_list %}
+				<ul>
+				{% for question in latest_question_list %}
+					<li><a href="{% url 'polls:detail' question.id %}">{{question.question_text}}</a></li>
+				{% endfor %}
+				</ul>
+			{% else %}
+				<p>No polls are available.</p>
+			{% endif %}
+		</div>
+	</div>
+	{% else %}
+	  <p>Добро пожаловать, незнакомец. Войдите, чтобы голосовать</p>
+	{% endif %}
+</div>
