@@ -26,7 +26,7 @@ class Choice(models.Model):
 		return self.choice_text
 		
 
-class User_answer(models.Model):
+class UserAnswer(models.Model):
 	user = models.ForeignKey(User, on_delete=models.CASCADE)
 	question = models.ForeignKey(Question, on_delete=models.CASCADE)
 	choice = models.ForeignKey(Choice, on_delete=models.CASCADE)	
